@@ -12,27 +12,23 @@ public final class Ipv6Client {
             PrintStream out = new PrintStream((socket.getOutputStream()),true,"UTF-8");
             for(int packetN=0;packetN<12;packetN++) {
                 System.out.println("Packet " + (packetN+1));
-                // .5B + .5B + 1B+ 2B + 2B + 3/8B + 1 5/8 B + 1B + 1B + 2B + 4B + 4B + DATA
                 int byteAmt=(int) Math.pow(2,(packetN+1));
                 byte[] sequence = new byte[40+byteAmt];
                 sequence[0]=0x60;
                 sequence[1]=0x00;
                 sequence[2]=0;
                 sequence[3]=0;
-                // In octets. Same thing apparently?
                 String hex = Integer.toHexString(byteAmt);
                 if (hex.length() < 4)
                     while (hex.length() < 4)
                         hex = "0" + hex;
                 sequence[4]=(byte) Integer.parseInt(hex.substring(0, 2).toUpperCase(), 16);
                 sequence[5]=sequence[11] = (byte) Integer.parseInt(hex.substring(2).toUpperCase(), 16);
-
                 //Next header
                 sequence[6]=0x11;
 
                 //Hop Limit
                 sequence[7]=0x14;
-
                 // TODO: Src Address
                 sequence[8]=0x40;
                 sequence[9]=0;
@@ -69,7 +65,7 @@ public final class Ipv6Client {
                 sequence[39]=0x06;
 
                 out.write(sequence);
-                System.out.println("0x"+(Integer.toHexString(is.read())+Integer.toHexString(is.read())+Integer.toHexString(is.read())+Integer.toHexString(is.read())).toUpperCase());
+                System.out.println("Response: 0x"+(Integer.toHexString(is.read())+Integer.toHexString(is.read())+Integer.toHexString(is.read())+Integer.toHexString(is.read())).toUpperCase());
             }
             is.close();
             isr.close();

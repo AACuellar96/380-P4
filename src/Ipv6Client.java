@@ -29,41 +29,40 @@ public final class Ipv6Client {
 
                 //Hop Limit
                 sequence[7]=0x14;
-                // TODO: Src Address
-                sequence[8]=0x40;
+                // Src Address
+                sequence[8]=0;
                 sequence[9]=0;
-                sequence[10]=0x32;
-                sequence[11]=0x06;
-                sequence[12]=0x11;
-                sequence[13]=0x11;
-                sequence[14]=0x11;
-                sequence[15]=0x11;
-                sequence[16]=0x12;
-                sequence[17]=(byte) 0xDD;
-                sequence[18]=(byte) 0x66;
-                sequence[19]= (byte) 0xB6;
-                sequence[20]=0x40;
-                sequence[21]=0;
-                sequence[22]=0x32;
-                sequence[23]=0x06;
+                sequence[10]=0;
+                sequence[11]=0;
+                sequence[12]=0;
+                sequence[13]=0;
+                sequence[14]=0;
+                sequence[15]=0;
+                sequence[16]=0;
+                sequence[17]=0;
+                sequence[18]=(byte) 0xFF;
+                sequence[19]=(byte) 0xFF;
+                sequence[20]=(byte) 0x6F;
+                sequence[21]=(byte) 0x6F;
+                sequence[22]=(byte) 0x0B;
+                sequence[23]=(byte) 0x6F;
                 // TODO: Dest Address
-                sequence[24]=0x40;
+                sequence[24]=0;
                 sequence[25]=0;
-                sequence[26]=0x32;
-                sequence[27]=0x06;
-                sequence[28]=0x11;
-                sequence[29]=0x11;
-                sequence[30]=0x11;
-                sequence[31]=0x11;
-                sequence[32]=0x12;
-                sequence[33]=(byte) 0xDD;
-                sequence[34]=(byte) 0x66;
-                sequence[35]= (byte) 0xB6;
-                sequence[36]=0x40;
-                sequence[37]=0;
-                sequence[38]=0x32;
-                sequence[39]=0x06;
-
+                sequence[26]=0;
+                sequence[27]=0;
+                sequence[28]=0;
+                sequence[29]=0;
+                sequence[30]=0;
+                sequence[31]=0;
+                sequence[32]=0;
+                sequence[33]=0;
+                sequence[34]=(byte) 0xFF;
+                sequence[35]=(byte) 0xFF;
+                sequence[36]=(byte) 0x12;
+                sequence[37]=(byte) 0xDD;
+                sequence[38]=(byte) 0x66;
+                sequence[39]=(byte) 0xB6;
                 out.write(sequence);
                 System.out.println("Response: 0x"+(Integer.toHexString(is.read())+Integer.toHexString(is.read())+Integer.toHexString(is.read())+Integer.toHexString(is.read())).toUpperCase());
             }

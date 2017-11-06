@@ -42,10 +42,10 @@ public final class Ipv6Client {
                 sequence[17]=0;
                 sequence[18]=(byte) 0xFF;
                 sequence[19]=(byte) 0xFF;
-                sequence[20]=(byte) 0x6F;
-                sequence[21]=(byte) 0x6F;
-                sequence[22]=(byte) 0x0B;
-                sequence[23]=(byte) 0x6F;
+                sequence[20]=(byte) 0x11;
+                sequence[21]=(byte) 0x11;
+                sequence[22]=(byte) 0x11;
+                sequence[23]=(byte) 0x11;
                 // TODO: Dest Address
                 sequence[24]=0;
                 sequence[25]=0;
@@ -59,7 +59,7 @@ public final class Ipv6Client {
                 sequence[33]=0;
                 sequence[34]=(byte) 0xFF;
                 sequence[35]=(byte) 0xFF;
-                sequence[36]=(byte) 0x12;
+                sequence[36]= 0x12;
                 sequence[37]=(byte) 0xDD;
                 sequence[38]=(byte) 0x66;
                 sequence[39]=(byte) 0xB6;
